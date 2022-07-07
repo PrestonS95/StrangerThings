@@ -6,7 +6,7 @@ import { api, getPosts } from './api'
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(
-<BrowserRouter>
-    <App />
-</BrowserRouter>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
 );

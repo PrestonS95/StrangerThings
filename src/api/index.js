@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const BASE = `https://strangers-things.herokuapp.com/api/`
 const COHORT = `2206-FTB-ET-WEB-FT-A/`
+const URL = `${BASE}${COHORT}`
 
 export async function registerPerson(event){
     console.log(event.target.value)
@@ -57,12 +58,24 @@ export async function loginUser(event){
       })
       .catch(console.error);
 }
-export async function getPosts() {
-    try {
-      const { data } = await axios.get(`${ api }posts`);
-      return data;
-      console.log(data)
-    } catch (error) {
-      throw error;
-    }
-  }
+// export async function getPosts() {
+  //   try {
+  //     const  response  = await axios.get(`${ URL }/posts`);
+  //     console.log(response)
+  //     return response;
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }
+export async function getPosts(){
+  try{
+    const response = await fetch(`${URL}/posts`)
+    const result = await response.json()
+    console.log(result.data.posts)
+    let postsObj = result.data.posts
+    return postsObj
+  }catch(err){
+    console.error('error', err)
+
+}
+}
