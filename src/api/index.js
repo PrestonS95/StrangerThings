@@ -35,7 +35,7 @@ export async function registerPerson(event){
 }
 
 export async function loginUser(event){
-  let registerUsername = event.target[0].value
+  const registerUsername = event.target[0].value
   const registerPassword = event.target[1].value
 
   const response = await fetch(`${BASE}${COHORT}users/login`, {

@@ -3,27 +3,21 @@ import { API, getPosts } from "../api/index"
 import UserPosts from "./UserPosts"
 import {registerPerson, loginUser} from '../api'
 import './App.css'
-
-
+import { Route } from "react-router-dom"
+import Header from "./Header"
 
 const App = () =>{
     
     
-    const handleSubmit = (event) => {
-         event.preventDefault();
-         getPosts(event)
-        }
             
     return(<>
-    <form onSubmit={handleSubmit}>
-      <label>Username:</label>
-      <input id='username' placeholder="Your Username here" type="text" name="name" />
-      <label>Password:</label>
-      <input id= 'password' placeholder='Your Password Here' name="password" />
-      <button type="submit">Login</button>
-    </form>
-    <UserPosts getPosts={getPosts}/>
+        <Header/>
+        <UserPosts getPosts={getPosts}/>
+    {/* <Route path="/post">  */}
+    {/* </Route> */}
+
     </>
+    
     
     )
 
