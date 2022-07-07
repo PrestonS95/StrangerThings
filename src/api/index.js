@@ -35,7 +35,7 @@ export async function registerPerson(event){
 }
 
 export async function loginUser(event){
-  const registerUsername = event.target[0].value
+  let registerUsername = event.target[0].value
   const registerPassword = event.target[1].value
 
   const response = await fetch(`${BASE}${COHORT}users/login`, {
@@ -50,10 +50,10 @@ export async function loginUser(event){
 
         }
       })
-    }).then(response => response.json())
+    },console.log(response)).then(response => response.json())
       .then(result => {
         const data = result
-        console.log(result);
+        console.log(result, data);
         return data
       })
       .catch(console.error);
@@ -79,3 +79,13 @@ export async function getPosts(){
 
 }
 }
+ export const getProfile = async() =>{
+    const response = await fetch(`${URL}${COHORT}users/me`,
+    {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+    const result = await response.json()
+    const data = result.data
+    return data
+  }
