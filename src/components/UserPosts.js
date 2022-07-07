@@ -5,20 +5,7 @@ import './Userposts.css';
 // const resource =  getPosts()
  const UserPosts = () => {
     const [posts,setPosts]=useState([])
-//   useEffect(() => {
-//     const init=async()=>{
-//     const response=await getPosts()
-//     let result = response.data.posts
-//     console.log(response,'responses', result);
-//     setPosts(result) }
-    
-//   }, [])
-//   useEffect(() => {
-      
-  
-//     init()
-//     console.log(posts)
-//   }, [posts])
+
 useEffect(() => {
     try {
       Promise.all([getPosts()]).then(
@@ -68,31 +55,6 @@ useEffect(() => {
 //   allPosts()  }
 //     const [Posts, setPosts] = useState([])
 
-//     getPosts()
-//     .then((posts) => {
-//         setPosts(Posts)
-//         console.log(posts, Posts)
-        
-//     }).catch((err) => {
-//     });
-//     console.log( Posts,setPosts)
-        
-//   return (<ul>
-//     {Posts.data.posts.map(post => (
-//       <li key={post.id}>{post.text}</li>
-//     ))}
-//   </ul>)}
-        
-//         <div className="user-posts">
-//       <h2>Posts By { `${Posts}` }</h2>
-//       {Posts.map(({ id, title, description}) => (
-//         <div key={ id } className="post">
-//           <h3>{ title }</h3>
-//           <p>{ description }</p>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
+
 
 export default UserPosts
