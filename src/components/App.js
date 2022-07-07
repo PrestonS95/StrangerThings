@@ -2,6 +2,7 @@ import React,{useState, useEffect} from "react"
 import { API, getPosts } from "../api/index"
 import UserPosts from "./UserPosts"
 import {registerPerson, loginUser} from '../api'
+import './App.css'
 
 // async function Post(){
 //     const response = await fetch('https://strangers-things.herokuapp.com/api/COHORT-NAME/posts')

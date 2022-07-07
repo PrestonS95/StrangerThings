@@ -1,7 +1,7 @@
 import React ,{useState, useEffect} from 'react';
 import { getPosts } from '../api'
 
-//import './UserPosts.css';
+import './Userposts.css';
 // const resource =  getPosts()
  const UserPosts = () => {
     const [posts,setPosts]=useState([])
@@ -37,7 +37,8 @@ useEffect(() => {
       {
         posts.map(posts=>{
           return(
-            <div key={posts.author._id} style={{alignItems:'center',margin:'20px 60px'}}>
+            <div className='post'key={posts._id} style={{alignItems:'center',margin:'20px 60px'}}>
+            <h3>{posts.title}</h3>
             <h4>{posts.author.username}</h4>
             <p>{posts.description}</p>
           </div>
