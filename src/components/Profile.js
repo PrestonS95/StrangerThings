@@ -14,7 +14,7 @@ const Profile = (props) =>{
         getMyInfo()
 }), []
 return(
-    <div className="box">{`This is my Profile Component`}
+    <div className="box">{`Profile Component`}
 
     </div>
 )
