@@ -24,7 +24,7 @@ useEffect(() => {
       {
         posts.map(posts=>{
           return(
-            <div className='post'key={posts._id} style={{alignItems:'center',margin:'20px 60px'}}>
+            <div className='post'key={posts._id} style={{alignItems:'center',margin:'20px 60px',border:'1px solid black' ,padding:'10px'}}>
             <h3>{posts.title}</h3>
             <h4>{posts.author.username}</h4>
             <p>{posts.description}</p>

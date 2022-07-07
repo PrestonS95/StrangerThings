@@ -5,5 +5,11 @@ flex-wrap: wrap;
 align-items: flex-start;
 align-content: stretch;
 margin-inline: 10%;
-border: 5px;
+
+}
+div.Post{
+    border: 5px solid black;
+}
+div.Posts>div.Post{
+    border: 5px solid black;
 }

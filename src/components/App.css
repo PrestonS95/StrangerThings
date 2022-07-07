@@ -14,3 +14,6 @@ border-bottom: dashed;
 margin-bottom: 40px;
 background-color: rgb(105, 105, 243);
 /* padding-bottom: 30px; */}
+div.Posts>div.Post{
+    border: 5px solid black;
+}

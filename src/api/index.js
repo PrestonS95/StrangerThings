@@ -5,14 +5,15 @@ const COHORT = `2206-FTB-ET-WEB-FT-A/`
 const URL = `${BASE}${COHORT}`
 
 export async function registerPerson(event){
-    console.log(event.target.value)
+    console.log(event)
     console.log(`${BASE}${COHORT}`)
-    const registerUsername = event.target[0].value
-    const registerPassword = event.target[1].value
+    const registerUsername = await event.target[0].value
+    const registerPassword = await event.target[1].value
+    console.log(registerPassword, registerUsername)
 
     const response = await fetch(`${BASE}${COHORT}users/register`,
     
-    console.log(response),
+    // console.log(response),
     {
         method: "POST",
         headers: {
@@ -26,17 +27,19 @@ export async function registerPerson(event){
         })
     }
     )
-    const result = await response.json
+    const result =  response.json
+    console.log(response)
     const token = result.data.token
-    console.log(token)
-    localStorage.setItem("token", token)
-    const tokenFromStorage= localStorage.getItem("token")
+    
+    localStorage.setItem('token', token)
+    const tokenFromStorage= localStorage.getItem('token')
     console.log(tokenFromStorage)
 }
 
-export async function loginUser(event){
-  const registerUsername = event.target[0].value
-  const registerPassword = event.target[1].value
+export async function loginUser(username, password){
+  console.log(event)
+  // const registerUsername = await event.target[0].value
+  // const registerPassword = await event.target[1].value
 
   const response = await fetch(`${BASE}${COHORT}users/login`, {
       method: "POST",
@@ -45,18 +48,16 @@ export async function loginUser(event){
       },
       body: JSON.stringify({
         user: {
-          username: registerUsername,
-          password: registerPassword
+          username: username,
+          password: password
 
         }
       })
-    },console.log(response)).then(response => response.json())
-      .then(result => {
-        const data = result
-        console.log(result, data);
-        return data
-      })
-      .catch(console.error);
+    })
+    const result = await response.json
+    const token = result.data.token
+    console.log(token)
+    return token
 }
 // export async function getPosts() {
   //   try {
