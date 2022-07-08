@@ -91,41 +91,41 @@ export async function getPosts(){
     return data
   }
 
-  export const modifyPost = async(token, post)=>{
-    const response = fetch(`${URL}${COHORT}posts/${postsId}`,
-    {
-      method:"PATCH",
-      headers:{
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer TOKEN_STRING_HERE'
+  // export const modifyPost = async(token, post)=>{
+  //   const response = fetch(`${URL}${COHORT}posts/${postsId}`,
+  //   {
+  //     method:"PATCH",
+  //     headers:{
+  //       'Content-Type': 'application/json',
+  //       'Authorization': 'Bearer TOKEN_STRING_HERE'
 
-      } ,
-      body: JSON.stringify({
-        post:{
-          title: "",
-          description: "",
-          price: "",
-          location: "",
-          willDeliver: null
-        },
-      })
-      })
-      const result = await response.json
-      const token = result.data.token
-      console.log(token)
-      return token
-    }
+  //     } ,
+  //     body: JSON.stringify({
+  //       post:{
+  //         title: "",
+  //         description: "",
+  //         price: "",
+  //         location: "",
+  //         willDeliver: null
+  //       },
+  //     })
+  //     })
+  //     const result = await response.json
+  //     const token = result.data.token
+  //     console.log(token)
+  //     return token
+  //   }
 
-    export const DeletePost= async(token, postID)=>{
-      const response = fetch(`${URL}${COHORT}posts/${postsID}`, {
-        method: "DELETE",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer TOKEN_STRING_HERE'
-        }
-      }).then(response => response.json())
-        .then(result => {
-          console.log(result);
-        })
-        .catch(console.error);
-    }
+    // export const DeletePost= async(token, postID)=>{
+    //   const response = fetch(`${URL}${COHORT}posts/${postsID}`, {
+    //     method: "DELETE",
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Authorization': 'Bearer TOKEN_STRING_HERE'
+    //     }
+    //   }).then(response => response.json())
+    //     .then(result => {
+    //       console.log(result);
+    //     })
+    //     .catch(console.error);
+    // }
