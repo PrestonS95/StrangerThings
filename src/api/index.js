@@ -93,6 +93,11 @@ export async function getPosts(){
     const data = result.data
     return data
   }
+  export const setter= async()=>{
+    const localToken= localStorage.getItem('token')
+     console.log(localToken)
+     if(localToken){setUserLogIn(true)} else {setUserLogIn(false)}
+  }
 
   // export const modifyPost = async(token, post)=>{
   //   const response = fetch(`${URL}${COHORT}posts/${postsId}`,
