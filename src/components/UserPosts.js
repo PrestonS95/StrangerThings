@@ -28,6 +28,7 @@ useEffect(() => {
             <h3>{posts.title}</h3>
             <h4>{posts.author.username}</h4>
             <p>{posts.description}</p>
+            <h3>{posts.price}</h3>
           </div>
           )
 

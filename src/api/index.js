@@ -90,3 +90,24 @@ export async function getPosts(){
     const data = result.data
     return data
   }
+
+  export const modifyPost = async(token, post)=>{
+    const response = fetch(`${URL}${COHORT}posts/${postsId}`,
+    {
+      method:"PATCH",
+      headers:{
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer TOKEN_STRING_HERE'
+
+      } ,
+      body: JSON.stringify({
+        post:{
+          title: "",
+          description: "",
+          price: "",
+          location: "",
+          willDeliver: null
+        }
+      })       
+      })
+    }
