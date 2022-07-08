@@ -4,10 +4,10 @@ import { registerPerson } from "../api";
 const Register = () =>{
     
 
-       const handleSubmit = async (event) => {
+       async function handleSubmit(event) {
          event.preventDefault();
-         await registerPerson(event.target.value)
-         console.log(event)
+        const returnedData = await registerPerson(event)
+         console.log(event, returnedData)
            }
                
 return(<>
