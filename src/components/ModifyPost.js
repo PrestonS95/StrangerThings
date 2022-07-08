@@ -1,5 +1,6 @@
 import { useEffect } from "react"
-import { DeletePost, getPosts } from "../api"
+import { //DeletePost, 
+    getPosts } from "../api"
 
 
 const ModifyPost = () =>{
@@ -29,3 +30,5 @@ const ModifyPost = () =>{
         </div>
     )
 }
+
+export default ModifyPost

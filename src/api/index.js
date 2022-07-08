@@ -5,7 +5,7 @@ const COHORT = `2206-FTB-ET-WEB-FT-A/`
 const URL = `${BASE}${COHORT}`
 
 export async function registerPerson(event){
-    console.log(event)
+    console.log(event.target[0], event)
     console.log(`${BASE}${COHORT}`)
     const registerUsername = await event.target[0].value
     const registerPassword = await event.target[1].value
@@ -28,16 +28,17 @@ export async function registerPerson(event){
     }
     )
     const result =  response.json
-    console.log(response)
-    const token = result.data.token
+    console.log(response, result)
+    return result
+    // const token = await response.data.token.value
     
-    localStorage.setItem('token', token)
-    const tokenFromStorage= localStorage.getItem('token')
+    // localStorage.setItem('token', token)
+    // const tokenFromStorage= localStorage.getItem('token')
     console.log(tokenFromStorage)
 }
 
 export async function loginUser(username, password){
-  console.log(event)
+  console.log(username, password)
   // const registerUsername = await event.target[0].value
   // const registerPassword = await event.target[1].value
 
@@ -54,10 +55,12 @@ export async function loginUser(username, password){
         }
       })
     })
-    const result = await response.json
-    const token = result.data.token
-    console.log(token)
-    return token
+    const result =  await response.json()
+    const token = await result.data.token
+    console.log( result.data.token , 'result',  response, 'response', result.data, 'result.data')
+    localStorage.setItem('token', token)
+    const tokenFromStorage= localStorage.getItem('token')
+    return tokenFromStorage
 }
 // export async function getPosts() {
   //   try {

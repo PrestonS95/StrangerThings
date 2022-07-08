@@ -10,9 +10,10 @@ const Header = ({}) => {
       
           {userLogIn
           ? <> 
-              <Link to="/posts" className="current">POSTS</Link>
+              <Link to="/" className="current">POSTS</Link>
               <Link to="/profile" className="current">PROFILE</Link >
-              <Link to="/">LOG OUT</Link>
+              <Link to="/login">LOG OUT</Link>
+              <Link to="/register" className='current'>Register Profile</Link>
             </>
           : <>
 
@@ -23,9 +24,11 @@ const Header = ({}) => {
                   </option>
                 ))
               }</select> */}
-              <Link to="/posts" className="current">POSTS</Link>
+              <Link to="/" className="current">POSTS</Link>
               <Link to="/profile" className="current">PROFILE</Link >
-              <Link to="/">LOG IN</Link>
+              <Link to="/login">LOG IN</Link>
+              <Link to="/register" className='current'>Register Profile</Link>
+
               </>
 }
     </header>

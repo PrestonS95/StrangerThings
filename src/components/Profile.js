@@ -4,15 +4,15 @@ import { getProfile } from "../api";
 const Profile = (props) =>{
     let token= ''
     const [myInfo, setMyInfo] = useState({})
-    useEffect(()=>{
+    useEffect(() => {
         token = localStorage.getItem("token")
-        async function getMyInfo(){
-           const myReturnedInfo = await getProfile(token)
-           console.log(myReturnedInfo,'info from api call')
-           setMyInfo(myReturnedInfo)
+        async function getMyInfo() {
+            const myReturnedInfo = await getProfile(token)
+            console.log(myReturnedInfo)
+            await setMyInfo(myReturnedInfo)
         }
-        getMyInfo()
-}), []
+         getMyInfo()
+    },[])
 return(
     <div className="box">{`Profile Component`}
 
