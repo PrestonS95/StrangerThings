@@ -107,7 +107,25 @@ export async function getPosts(){
           price: "",
           location: "",
           willDeliver: null
-        }
-      })       
+        },
       })
+      })
+      const result = await response.json
+      const token = result.data.token
+      console.log(token)
+      return token
+    }
+
+    export const DeletePost= async(token, postID)=>{
+      const response = fetch(`${URL}${COHORT}posts/${postsID}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer TOKEN_STRING_HERE'
+        }
+      }).then(response => response.json())
+        .then(result => {
+          console.log(result);
+        })
+        .catch(console.error);
     }
