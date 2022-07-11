@@ -34,7 +34,7 @@ export async function registerPerson(event){
     
     // localStorage.setItem('token', token)
     // const tokenFromStorage= localStorage.getItem('token')
-    console.log(tokenFromStorage)
+    // console.log(tokenFromStorage)
 }
 
 export async function loginUser(username, password){
@@ -83,14 +83,15 @@ export async function getPosts(){
 
 }
 }
- export const getProfile = async() =>{
-    const response = await fetch(`${URL}${COHORT}users/me`,
-    {
+ export const getProfile = async(token) =>{
+    const response = await fetch(`${URL}users/me`,{
+    headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    })
+      'Authorization': `Bearer ${token}`,
+    }},)
     const result = await response.json()
     const data = result.data
+    console.log(data)
     return data
   }
   export const setter= async()=>{
@@ -105,7 +106,7 @@ export async function getPosts(){
   //     method:"PATCH",
   //     headers:{
   //       'Content-Type': 'application/json',
-  //       'Authorization': 'Bearer TOKEN_STRING_HERE'
+  //       'Authorization': 'Bearer token'
 
   //     } ,
   //     body: JSON.stringify({
@@ -129,7 +130,7 @@ export async function getPosts(){
     //     method: "DELETE",
     //     headers: {
     //       'Content-Type': 'application/json',
-    //       'Authorization': 'Bearer TOKEN_STRING_HERE'
+    //       'Authorization': 'Bearer token'
     //     }
     //   }).then(response => response.json())
     //     .then(result => {

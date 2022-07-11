@@ -4,7 +4,7 @@ import "./Header.css";
 import { setter } from "../api";
 
 const Header = ({}) => {
-  const [userLogIn, setUserLogIn] = useState(null);
+  const [userLogIn, setUserLogIn] = useState();
   const setter= ()=>{
    const localToken= localStorage.getItem('token')
     console.log(localToken)
@@ -16,6 +16,7 @@ const Header = ({}) => {
 function logout(){localStorage.clear(
 
   setUserLogIn(false)
+
 )
 
 }
@@ -35,7 +36,7 @@ function logout(){localStorage.clear(
           <Link to="/register" className="current">
             REGISTER
           </Link>
-          <button id="logout" onClick={logout}>Log Out</button>
+          <button id="logout" onClick={(e)=>[logout(e),window.location.reload()]}>Log Out</button>
         
         </>
       ) : (

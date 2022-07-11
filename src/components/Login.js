@@ -21,7 +21,7 @@ const LogIn = () =>{
     const handleSubmit = async (event) => {
       event.preventDefault();
        await loginUser(username, password)
-      console.log(token)
+      // console.log(token)
       localStorage.setItem('token',token)
        }
            
