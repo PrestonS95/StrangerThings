@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import React,{useState, useEffect} from 'react';
 const BASE = `https://strangers-things.herokuapp.com/api/`
 const COHORT = `2206-FTB-ET-WEB-FT-A/`
 const URL = `${BASE}${COHORT}`
@@ -94,11 +94,13 @@ export async function getPosts(){
     console.log(data)
     return data
   }
-  export const setter= async()=>{
-    const localToken= localStorage.getItem('token')
-     console.log(localToken)
-     if(localToken){setUserLogIn(true)} else {setUserLogIn(false)}
-  }
+  // const [userLogIn, setUserLogIn] = useState(false);
+  // export const setter= ()=>{
+  //       const localToken= localStorage.getItem('token')
+  //       console.log(localToken)
+  //       if(localToken){setUserLogIn(true)} else {setUserLogIn(false)}
+        
+  //  }
 
   // export const modifyPost = async(token, post)=>{
   //   const response = fetch(`${URL}${COHORT}posts/${postsId}`,

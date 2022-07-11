@@ -32,7 +32,6 @@ function logout(){localStorage.clear(
           <Link to="/profile" className="current">
             PROFILE
           </Link>
-          <Link to="/login">LOG OUT</Link>
           <Link to="/register" className="current">
             REGISTER
           </Link>
