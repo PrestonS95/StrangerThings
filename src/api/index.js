@@ -1,5 +1,3 @@
-import axios from 'axios';
-import React,{useState, useEffect} from 'react';
 const BASE = `https://strangers-things.herokuapp.com/api/`
 const COHORT = `2206-FTB-ET-WEB-FT-A/`
 const URL = `${BASE}${COHORT}`
