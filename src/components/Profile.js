@@ -16,11 +16,21 @@ const Profile = (props) => {
   }, []);
   console.log(myInfo);
   return (
-    // ? userLogIn
+<div id="Profile" > 
 
-    // :
+ {!userLogIn ? (<>
 
-    <div className="box">
+ 
+    </>
+    
+    )
+ 
+ 
+ :
+
+   (
+    <>
+     <div className="box">
       <span style={{ fontSize: "2em" }}>My Profile</span>
       <br></br>
       <br></br>
@@ -46,6 +56,8 @@ const Profile = (props) => {
       ){/* myInfo.messages.map(props=>{ */}
       {/* }) */}
     </div>
+    </>)} </div>
+
   );
 };
 export default Profile;
