@@ -121,7 +121,7 @@ export async function getPosts(){
       return token
     }
 
-    export const DeletePost= async(token, postID)=>{
+    export const deletePost= async(token, postID)=>{
       const response = fetch(`${URL}${COHORT}posts/${postID}`, {
         method: "DELETE",
         headers: {
@@ -134,3 +134,41 @@ export async function getPosts(){
         })
         .catch(console.error);
     }
+
+    export const newPost = async (token, post) => {
+      const response = await fetch(`${URL}/posts`,
+          {
+              method: "POST",
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${token}`
+              },
+              body: JSON.stringify({
+                  post: post
+              })
+          })
+      const result = await response.json()
+      const newPost = result.data.post
+      return newPost
+  }
+  
+  export const sendMessage = async (token, postID, contents) => {
+      const response = await fetch(`${URL}/posts/${postID}/messages`,
+          {
+              method: "POST",
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${token}`
+              },
+              body: JSON.stringify({
+                  message: {
+                      content: `${contents}`
+                  }
+              })
+          }
+  
+      )
+      const result = await response.json()
+      console.log(result, "posted message after API")
+      return result
+        }

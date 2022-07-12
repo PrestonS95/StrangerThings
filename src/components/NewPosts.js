@@ -1,26 +1,31 @@
-// const modal =()=> {
-//     onClose = e => {
-//       this.props.onClose && this.props.onClose(e); };
-//     render(){
-//       if (!this.props.show) {
-//         return null;
-//       }
+import React,{useState, useEffect} from "react";
+import { newPost } from "../api"
+
+
+const NewPosts =({posts, setPosts})=> {
+//     const makePost = () =>{
+//         newPost()
+//     }
+      
 //       return (
 //         <div class="modal" id="modal">
-//           <h2>Modal Window</h2>
-//           <div class="content">{this.props.children}</div>
+//           <h2>New Post</h2>
 //           <div class="actions">
-//             <button class="toggle-button" onClick={this.onClose}>
-//               close
-//             </button>
+//           <form onSubmit={handleSubmit}>
+//                 <label>Username</label>
+//                 <input id='username'  onChange={handleOnChange} placeholder="Your Username here" value={username} />
+//                 <label>Password</label>
+//                 <input id= 'password' onChange={handleOnChange} placeholder='Your Password Here' value={password} />
+//                 <button type="submit">Login</button>
+//             </form>
 //           </div>
 //         </div>
 //       );
-//     }
-//   }
+    
+  }
 
 
 
 
 
-// export default NewPosts
+  export default NewPosts

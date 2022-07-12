@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { DeletePost, 
+import { deletePost, 
     getPosts } from "../api"
 import UserPosts from "./UserPosts"
 
@@ -10,7 +10,7 @@ const ModifyPost = ({posts, setPosts}) =>{
     const handleDelete = (event)=>{
         event.preventDefault
         const token = localStorage.getItem('token')
-        DeletePost(token, event.target.id)
+        deletePost(token, event.target.id)
     }
     useEffect(()=>{
         async function getAllPosts(){

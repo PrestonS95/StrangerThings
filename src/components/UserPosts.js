@@ -25,7 +25,7 @@ useEffect(() => {
   
   return (
     <div className="Posts">
-      {/* <NewPosts/> */}
+      <NewPosts posts={posts} setPosts={setPosts}/>
       {
 
         posts.map(posts=>{
