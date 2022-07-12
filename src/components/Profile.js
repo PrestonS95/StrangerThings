@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getProfile } from "../api";
+import Register from "./Register";
 
-const Profile = (props) => {
+const Profile = ({userLogIn, tokenState}) => {
   let token = "";
   const [myInfo, setMyInfo] = useState({});
   useEffect(() => {
@@ -19,8 +20,9 @@ const Profile = (props) => {
 <div id="Profile" > 
 
  {!userLogIn ? (<>
+<span>Sign Up To Get Your Own Profile Page</span>
+<Register/>
 
- 
     </>
     
     )
