@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPosts } from "../api";
+import { getPosts,getMess,deletePost } from "../api";
 import ModifyPost from "./ModifyPost";
 import NewPosts from "./NewPosts";
 import "./Userposts.css";
@@ -15,7 +15,7 @@ const UserPosts = ({ userLogIn,tokenState, }) => {
       let token = localStorage.getItem("token");
       console.log(token);
       const myReturnData = await getMess(token);
-      console.log(myReturnedInfo);
+      console.log(myReturnedData);
       setPosts(myReturnData);
     }
     getAllPosts();
@@ -35,12 +35,20 @@ const UserPosts = ({ userLogIn,tokenState, }) => {
   }, []);
 }
   
-
-  <ModifyPost posts={posts} setPosts={setPosts} />;
+ <ModifyPost posts={posts} setPosts={setPosts} />;
+ 
+  
 
   return (
+    
     <div className="Posts">
-      <NewPosts posts={posts} setPosts={setPosts} />
+      {userLogIn ? (
+      <>
+      <NewPosts posts={posts} setPosts={setPosts}/>
+     
+      </>)
+      :
+    (<>
       {posts.map((posts) => {
         return (
           <div
@@ -50,16 +58,16 @@ const UserPosts = ({ userLogIn,tokenState, }) => {
               alignItems: "center",
               margin: "20px 60px",
               border: "1px solid black",
-              padding: "10px",
-            }}
-          >
+              padding: "10px",}}>
             <h3>{posts.title}</h3>
             <h4>{posts.author.username}</h4>
             <p>{posts.description}</p>
             <h3>{posts.price}</h3>
           </div>
-        );
-      })}
+        );}
+      )}
+      </>)
+      }
     </div>
   );
 };

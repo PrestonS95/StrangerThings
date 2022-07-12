@@ -101,7 +101,7 @@ export async function getPosts(){
     });
     const result = await response.json();
     const data = result.data;
-    console.log(data, result,'result',result.data,'result.data');
+    console.log(data, result,'result',result.data.posts,'result.data');
     return data;
   };
   // const [userLogIn, setUserLogIn] = useState(false);

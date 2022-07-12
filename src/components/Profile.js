@@ -41,8 +41,7 @@ const Profile = ({ userLogIn, tokenState }) => {
                 margin: "20px 60px",
                 border: "1px solid black",
                 padding: "10px",
-              }}
-            >
+              }}>
               <h3>{myInfo.username}</h3>
 
               <p>{myInfo.data}</p>
