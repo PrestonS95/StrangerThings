@@ -102,41 +102,35 @@ export async function getPosts(){
         
   //  }
 
-  // export const modifyPost = async(token, post)=>{
-  //   const response = fetch(`${URL}${COHORT}posts/${postsId}`,
-  //   {
-  //     method:"PATCH",
-  //     headers:{
-  //       'Content-Type': 'application/json',
-  //       'Authorization': 'Bearer token'
+  export const modifyPost = async(tokens, post, postsId)=>{
+    const response = fetch(`${URL}${COHORT}posts/${postsId}`,
+    {
+      method:"PATCH",
+      headers:{
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokens}`
 
-  //     } ,
-  //     body: JSON.stringify({
-  //       post:{
-  //         title: "",
-  //         description: "",
-  //         price: "",
-  //         location: "",
-  //         willDeliver: null
-  //       },
-  //     })
-  //     })
-  //     const result = await response.json
-  //     const token = result.data.token
-  //     console.log(token)
-  //     return token
-  //   }
+      } ,
+      body: JSON.stringify({
+        post: post
+    })
+      })
+      const result = await response.json
+      const token = result.data.token
+      console.log(token)
+      return token
+    }
 
-    // export const DeletePost= async(token, postID)=>{
-    //   const response = fetch(`${URL}${COHORT}posts/${postsID}`, {
-    //     method: "DELETE",
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Authorization': 'Bearer token'
-    //     }
-    //   }).then(response => response.json())
-    //     .then(result => {
-    //       console.log(result);
-    //     })
-    //     .catch(console.error);
-    // }
+    export const DeletePost= async(token, postID)=>{
+      const response = fetch(`${URL}${COHORT}posts/${postID}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      }).then(response => response.json())
+        .then(result => {
+          console.log(result);
+        })
+        .catch(console.error);
+    }

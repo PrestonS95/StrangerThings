@@ -18,15 +18,19 @@ const Profile = (props) =>{
     },[])
    console.log(myInfo)
 return(
-    <div className="box">{`Profile Component`}
-        {/* {myInfo.messages.map(messages, posts=>{
-          return(
-            <div className='profile'key={data._id} style={{alignItems:'center',margin:'20px 60px',border:'1px solid black' ,padding:'10px'}}>
-            <h3>{myInfo.data.messages}</h3>
-            <h4>{posts.author.username}</h4>
-            <p>{posts.data}</p>
-            <h3>{posts.price}</h3>
-          </div>)})} */}
+    <div className="box" >
+    <span style={{fontSize: '2em'}}>My Profile</span> 
+    <br></br>
+    <br></br>
+    <span id="myposts" className="myposts">My Posts</span>
+        
+        <div className='profile'key={myInfo._id} style={{alignItems:'center',margin:'20px 60px',border:'1px solid black' ,padding:'10px'}}>
+                <h3>{myInfo.username}</h3>
+                
+                <p>{myInfo.data}</p>
+                <h3>{myInfo.price}</h3>
+
+          </div>
 
     </div>
 )

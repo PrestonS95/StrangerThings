@@ -4,7 +4,7 @@ import {registerPerson, loginUser} from '../api'
 import './App.css'
 import { Route } from "react-router-dom"
 
-const LogIn = () =>{
+const LogIn = ({user}) =>{
     const [username, setUserName] = useState('')
     const [password, setPassword] = useState('')
 

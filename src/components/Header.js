@@ -3,22 +3,20 @@ import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { setter } from "../api";
 
-const Header = ({}) => {
-  const [userLogIn, setUserLogIn] = useState();
-  const setter= ()=>{
-   const localToken= localStorage.getItem('token')
-    console.log(localToken)
-    if(localToken){setUserLogIn(true)} else {setUserLogIn(false)}
- }
+const Header = ({userLogIn, setUserLogIn}, {logout}) => {
+//   const [userLogIn, setUserLogIn] = useState();
+//   const setter= ()=>{
+//    const localToken= localStorage.getItem('token')
+//     console.log(localToken)
+//     if(localToken){setUserLogIn(true)} else {setUserLogIn(false)}
+//  }s
 
- useEffect(setter)
-
-function logout(){localStorage.clear(
-
-  setUserLogIn(false)
-
-)
-
+console.log(userLogIn, logout)
+//  useEffect(setter)
+{logout}
+function logout(){
+  localStorage.clear()
+  // setUserLogIn(false)
 }
   return (
     <header className="siteheader">
