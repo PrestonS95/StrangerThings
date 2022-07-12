@@ -4,10 +4,27 @@ import ModifyPost from "./ModifyPost";
 import NewPosts from "./NewPosts";
 import "./Userposts.css";
 // const resource =  getPosts()
-const UserPosts = ({ userLogIn }) => {
+const UserPosts = ({ userLogIn,tokenState, }) => {
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
+
+  if(userLogIn){
+    useEffect(() => {
+    
+    async function getAllPosts() {
+      let token = localStorage.getItem("token");
+      console.log(token);
+      const myReturnData = await getMess(token);
+      console.log(myReturnedInfo);
+      setPosts(myReturnData);
+    }
+    getAllPosts();
+  }, [])
+
+  }else{
+    
+    useEffect(() => {
+  
     try {
       Promise.all([getPosts()]).then(([posts]) => {
         setPosts(posts);
@@ -16,6 +33,8 @@ const UserPosts = ({ userLogIn }) => {
       console.error(error, "something broke");
     }
   }, []);
+}
+  
 
   <ModifyPost posts={posts} setPosts={setPosts} />;
 

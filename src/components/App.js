@@ -36,6 +36,7 @@ const App = () => {
           path="/"
           element={
             <UserPosts
+              tokenState={tokenState}
               getPosts={getPosts}
               setUserLogIn={setUserLogIn}
               userLogIn={userLogIn}

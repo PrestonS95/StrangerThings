@@ -92,6 +92,18 @@ export async function getPosts(){
     console.log(data)
     return data
   }
+  export const getMess = async (token) => {
+    const response = await fetch(`${URL}posts`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    const data = result.data;
+    console.log(data, result,'result',result.data,'result.data');
+    return data;
+  };
   // const [userLogIn, setUserLogIn] = useState(false);
   // export const setter= ()=>{
   //       const localToken= localStorage.getItem('token')
