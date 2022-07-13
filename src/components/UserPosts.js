@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getPosts,getMess,deletePost } from "../api";
+import { getPosts,getMess,deletePost, modifyPost } from "../api";
 import ModifyPost from "./ModifyPost";
 import NewPosts from "./NewPosts";
 import "./Userposts.css";
 // const resource =  getPosts()
 const UserPosts = ({ userLogIn,tokenState, }) => {
   const [posts, setPosts] = useState([]);
+  const [newPostFlag, setNewPostFlag] =useState(false)
+  const [modifyFlag, setModifyFlag] =useState(false)
+  const[setSinglePost,setMessageFlag]=useState([])
+  
 
 
   if(userLogIn){
@@ -15,7 +19,7 @@ const UserPosts = ({ userLogIn,tokenState, }) => {
       let token = localStorage.getItem("token");
       console.log(token);
       const myReturnData = await getMess(token);
-      console.log(myReturnedData);
+      console.log(myReturnData);
       setPosts(myReturnData);
     }
     getAllPosts();
@@ -34,45 +38,73 @@ const UserPosts = ({ userLogIn,tokenState, }) => {
     }
   }, []);
 }
+  <ModifyPost posts={posts} setPosts={setPosts} />;
   
- <ModifyPost posts={posts} setPosts={setPosts} />;
- 
-  
+const showPosts=
+posts.length ? 
+(<>
 
-  return (
-    
-    <div className="Posts">
-      {userLogIn ? (
-      <>
-      <NewPosts posts={posts} setPosts={setPosts}/>
-     
-      </>)
-      :
-    (<>
-      {posts.map((posts) => {
+   {posts.map((post, index) => {
         return (
           <div
-            className="post"
-            key={posts._id}
+            className="post2"
+            index={post._id}
             style={{
               alignItems: "center",
               margin: "20px 60px",
               border: "1px solid black",
               padding: "10px",}}>
-            <h3>{posts.title}</h3>
-            <h4>{posts.author.username}</h4>
-            <p>{posts.description}</p>
-            <h3>{posts.price}</h3>
+            <h3>{post.title}</h3>
+            <h4>{post.author.username}</h4>
+            <p>{post.description}</p>
+            <h3>{post.price}</h3>
+            <button id={`${posts.id}`} />
+            <button id="modpost" onSubmit={modifyPost}/>
           </div>
         );}
       )}
       </>)
-      }
-    </div>
-  );
-};
+      :(<div>Loading</div>)
 
-//     async function allPosts() {
+
+
+
+            
+
+  return(<>
+      { userLogIn ? (   <>
+
+     {showPosts}
+      
+     
+      </>)
+      : 
+      (<>
+        {posts.map((post, index) => {
+        return (
+          <div
+            className="post2"
+            index={posts._id}
+            style={{
+              alignItems: "center",
+              margin: "20px 60px",
+              border: "1px solid black",
+              padding: "10px",}}>
+            <h3>{post.title}</h3>
+            <h4>{post.author.username}</h4>
+            <p>{post.description}</p>
+            <h3>{post.price}</h3>
+          </div>
+          );}
+      )}</>)}
+      </>)
+     
+
+
+            }
+            export default UserPosts;
+ {/* <NewPosts posts={posts} setPosts={setPosts}/> */
+/* //     async function allPosts() {
 
 //         console.log(resource)
 //          const posts = await {resource}
@@ -88,6 +120,4 @@ const UserPosts = ({ userLogIn,tokenState, }) => {
 //         );
 //       }
 //   allPosts()  }
-//     const [Posts, setPosts] = useState([])
-
-export default UserPosts;
+//     const [Posts, setPosts] = useState([]) */}

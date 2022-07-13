@@ -7,7 +7,7 @@
     "test": "test",
     "start-dev": "NODE_ENV='development' react-scripts start",
     "start": "react-scripts start",
-    "build": "NODE_ENV=production npm run compile-env && react-scripts build"
+    "build": "NODE_ENV=production react-scripts build"
   },
   "author": "Gabriel Juache and Preston Sullins",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.6.0",
+   
     "react-scripts": "^5.0.1"
   },
   "browserslist": {
