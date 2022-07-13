@@ -6,7 +6,7 @@ import "./App.css";
 
 const App = () => {
   const [tokenState, SetTokenState] = useState("");
-  const [userLogIn, setUserLogIn] = useState(true);
+  const [userLogIn, setUserLogIn] = useState(null);
   const setter = () => {
     const localToken = localStorage.getItem("token");
     console.log(localToken);
